@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CORS Demo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <h1>CORS Demo</h1>
+    <p>Press <button id="esc">esc</button> to remove all images.</p>
+
+    <h2>1. S3 without CORS settings</h2>
+    <p>Use default S3 configuration.</p>
+    <div id="container"></div>
+    <div class="box">
+        <label>Get by img tag</label>
+        <button class="img-tag-btn">test</button>
+    </div>
+    <div class="box">
+        <label>Get by img tag with CORS</label>
+        <button class="img-tag-crossorigin-btn">test</button>
+    </div>
+    <div class="box">
+        <label>Get by fetch</label>
+        <button class="fetch-btn">test</button>
+    </div>
+    <div class="box">
+        <label>Get by fetch with preflight</label>
+        <button class="fetch-preflight-btn">test</button>
+    </div>
+
+    <h2>2. S3 with CORS settings</h2>
+    <p>
+        Use the S3 CORS policy from <a href="https://stackoverflow.com/a/64586341/14393225" target="_blank" rel="noopener">stackoverflow</a>.
+    </p>
+    <div class="box">
+        <label>Get by img tag</label>
+        <button class="img-tag-btn">test</button>
+    </div>
+    <div class="box">
+        <label>Get by img tag with CORS</label>
+        <button class="img-tag-crossorigin-btn">test</button>
+    </div>
+    <div class="box">
+        <label>Get by fetch</label>
+        <button class="fetch-btn">test</button>
+    </div>
+    <div class="box">
+        <label>Get by fetch with preflight</label>
+        <button class="fetch-preflight-btn">test</button>
+    </div>
+
+    <h2>3. CloudFront default settings</h2>
+    <p>
+        Use CloudFront default settings. The S3 origin is with CORS settings.
+    </p>
+    <div class="box">
+        <label>Get by img tag</label>
+        <button class="img-tag-btn">test</button>
+    </div>
+    <div class="box">
+        <label>Get by img tag with CORS</label>
+        <button class="img-tag-crossorigin-btn">test</button>
+    </div>
+    <div class="box">
+        <label>Get by fetch</label>
+        <button class="fetch-btn">test</button>
+    </div>
+    <div class="box">
+        <label>Get by fetch with preflight</label>
+        <button class="fetch-preflight-btn">test</button>
+    </div>
+
+    <h2>4. CloudFront with simple-cors response header policy</h2>
+    <p>Use CloudFront + S3 with managed response header policy <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-response-headers-policies.html#managed-response-headers-policies-cors" target="_blank" rel="noopener">simple-CORS</a>. The S3 origin is without CORS settings.</p>
+    <div class="box">
+        <label>Get by img tag</label>
+        <button class="img-tag-btn">test</button>
+    </div>
+    <div class="box">
+        <label>Get by img tag with CORS</label>
+        <button class="img-tag-crossorigin-btn">test</button>
+    </div>
+    <div class="box">
+        <label>Get by fetch</label>
+        <button class="fetch-btn">test</button>
+    </div>
+    <div class="box">
+        <label>Get by fetch with preflight</label>
+        <button class="fetch-preflight-btn">test</button>
+    </div>
+
+    <h2>5. CloudFront custom header to origin</h2>
+    The S3 origin is with CORS settings. Add a request header <code>origin</code> in CloudFront to S3, so S3 responds <code>access-control-allow-origin</code> every time.
+    <div class="box">
+        <label>Get by img tag</label>
+        <button class="img-tag-btn">test</button>
+    </div>
+    <div class="box">
+        <label>Get by img tag with CORS</label>
+        <button class="img-tag-crossorigin-btn">test</button>
+    </div>
+    <div class="box">
+        <label>Get by fetch</label>
+        <button class="fetch-btn">test</button>
+    </div>
+    <div class="box">
+        <label>Get by fetch with preflight</label>
+        <button class="fetch-preflight-btn">test</button>
+    </div>
+
+    <h2>6. CORS with caching optimized cache policy</h2>
+    Use CloudFront managed cache policy <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-origin-request-policies.html#managed-origin-request-policies-list" target="_blank" rel="noopener"><code>CachingOptimized</code></a> and managed origin request policy <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html#managed-cache-policies-list" target="_blank" rel="noopener"></a><code>CORS-S3Origin</code></a>.
+    <div class="box">
+        <label>Get by img tag</label>
+        <button class="img-tag-btn">test</button>
+    </div>
+    <div class="box">
+        <label>Get by img tag with CORS</label>
+        <button class="img-tag-crossorigin-btn">test</button>
+    </div>
+    <div class="box">
+        <label>Get by fetch</label>
+        <button class="fetch-btn">test</button>
+    </div>
+    <div class="box">
+        <label>Get by fetch with preflight</label>
+        <button class="fetch-preflight-btn">test</button>
+    </div>
+
+    <h2>7. CORS with settings in knowledge center</h2>
+    Use the same policy as mentioned in <a href="https://aws.amazon.com/premiumsupport/knowledge-center/no-access-control-allow-origin-error/" target="_blank" rel="noopener">knowledge center</a>.
+    <div class="box">
+        <label>Get by img tag</label>
+        <button class="img-tag-btn">test</button>
+    </div>
+    <div class="box">
+        <label>Get by img tag with CORS</label>
+        <button class="img-tag-crossorigin-btn">test</button>
+    </div>
+    <div class="box">
+        <label>Get by fetch</label>
+        <button class="fetch-btn">test</button>
+    </div>
+    <div class="box">
+        <label>Get by fetch with preflight</label>
+        <button class="fetch-preflight-btn">test</button>
+    </div>
+
+    <p>
+        Image source: https://unsplash.com/photos/jLi7xbYnYro
+    </p>
+    <script src="index.js"></script>
+</body>
+
+</html>
