@@ -15,25 +15,27 @@
 
 <body>
     <h1>CORS Demo</h1>
-    <p>Press <button id="esc">esc</button> to remove all images.</p>
+    <p>Press keyboard <button id="esc">esc</button> to remove all images.</p>
 
     <h2>1. S3 without CORS settings</h2>
-    <p>Use default S3 configuration.</p>
+    <p>Use default S3 configuration. No <a
+            href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/enabling-cors-examples.html">CORS policy</a> in
+        S3. In this case, S3 will not return <code>access-control-allow-origin</code> response header.</p>
     <div id="container"></div>
     <div class="box">
-        <label>Get by img tag</label>
+        <label>GET by <code>img</code> tag</label>
         <button class="img-tag-btn">test</button>
     </div>
     <div class="box">
-        <label>Get by img tag with CORS</label>
+        <label>GET by <code>img crossorigin</code> tag</label>
         <button class="img-tag-crossorigin-btn">test</button>
     </div>
     <div class="box">
-        <label>Get by fetch</label>
+        <label>GET by fetch API</label>
         <button class="fetch-btn">test</button>
     </div>
     <div class="box">
-        <label>Get by fetch with preflight</label>
+        <label>GET by fetch API with preflight</label>
         <button class="fetch-preflight-btn">test</button>
     </div>
 
@@ -43,61 +45,65 @@
             rel="noopener">stackoverflow</a>.
     </p>
     <div class="box">
-        <label>Get by img tag</label>
+        <label>GET by <code>img</code> tag</label>
         <button class="img-tag-btn">test</button>
     </div>
     <div class="box">
-        <label>Get by img tag with CORS</label>
+        <label>GET by <code>img crossorigin</code> tag</label>
         <button class="img-tag-crossorigin-btn">test</button>
     </div>
     <div class="box">
-        <label>Get by fetch</label>
+        <label>GET by fetch API</label>
         <button class="fetch-btn">test</button>
     </div>
     <div class="box">
-        <label>Get by fetch with preflight</label>
+        <label>GET by fetch API with preflight</label>
         <button class="fetch-preflight-btn">test</button>
     </div>
 
     <h2>3. CloudFront default settings</h2>
     <p>
-        Use CloudFront default settings. The S3 origin is with CORS settings.
+        Use CloudFront default settings. The S3 origin is with CORS settings. CloudFront use cache policy
+        CachingOptimized by default.
     </p>
     <div class="box">
-        <label>Get by img tag</label>
+        <label>GET by <code>img</code> tag</label>
         <button class="img-tag-btn">test</button>
     </div>
     <div class="box">
-        <label>Get by img tag with CORS</label>
+        <label>GET by <code>img crossorigin</code> tag</label>
         <button class="img-tag-crossorigin-btn">test</button>
     </div>
     <div class="box">
-        <label>Get by fetch</label>
+        <label>GET by fetch API</label>
         <button class="fetch-btn">test</button>
     </div>
     <div class="box">
-        <label>Get by fetch with preflight</label>
+        <label>GET by fetch API with preflight</label>
         <button class="fetch-preflight-btn">test</button>
     </div>
 
     <h2>4. CloudFront with simple-cors response header policy</h2>
     <p>Use CloudFront + S3 with managed response header policy <a
             href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-response-headers-policies.html#managed-response-headers-policies-cors"
-            target="_blank" rel="noopener">simple-CORS</a>. The S3 origin is without CORS settings.</p>
+            target="_blank" rel="noopener">simple-CORS</a>. The S3 origin is without CORS settings. CloudFront won't
+        return <code>access-control-allow-origin</code> for a <a
+            href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#simple_requests">simple request</a>.
+    </p>
     <div class="box">
-        <label>Get by img tag</label>
+        <label>GET by <code>img</code> tag</label>
         <button class="img-tag-btn">test</button>
     </div>
     <div class="box">
-        <label>Get by img tag with CORS</label>
+        <label>GET by <code>img crossorigin</code> tag</label>
         <button class="img-tag-crossorigin-btn">test</button>
     </div>
     <div class="box">
-        <label>Get by fetch</label>
+        <label>GET by fetch API</label>
         <button class="fetch-btn">test</button>
     </div>
     <div class="box">
-        <label>Get by fetch with preflight</label>
+        <label>GET by fetch API with preflight</label>
         <button class="fetch-preflight-btn">test</button>
     </div>
 
@@ -107,19 +113,19 @@
             href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-response-headers-policies.html#managed-response-headers-policies-cors"
             target="_blank" rel="noopener">CORS-With-Preflight</a>. The S3 origin is without CORS settings.</p>
     <div class="box">
-        <label>Get by img tag</label>
+        <label>GET by <code>img</code> tag</label>
         <button class="img-tag-btn">test</button>
     </div>
     <div class="box">
-        <label>Get by img tag with CORS</label>
+        <label>GET by <code>img crossorigin</code> tag</label>
         <button class="img-tag-crossorigin-btn">test</button>
     </div>
     <div class="box">
-        <label>Get by fetch</label>
+        <label>GET by fetch API</label>
         <button class="fetch-btn">test</button>
     </div>
     <div class="box">
-        <label>Get by fetch with preflight</label>
+        <label>GET by fetch API with preflight</label>
         <button class="fetch-preflight-btn">test</button>
     </div>
 
@@ -127,19 +133,19 @@
     The S3 origin is with CORS settings. Add a request header <code>origin</code> in CloudFront to S3, so S3 responds
     <code>access-control-allow-origin</code> every time.
     <div class="box">
-        <label>Get by img tag</label>
+        <label>GET by <code>img</code> tag</label>
         <button class="img-tag-btn">test</button>
     </div>
     <div class="box">
-        <label>Get by img tag with CORS</label>
+        <label>GET by <code>img crossorigin</code> tag</label>
         <button class="img-tag-crossorigin-btn">test</button>
     </div>
     <div class="box">
-        <label>Get by fetch</label>
+        <label>GET by fetch API</label>
         <button class="fetch-btn">test</button>
     </div>
     <div class="box">
-        <label>Get by fetch with preflight</label>
+        <label>GET by fetch API with preflight</label>
         <button class="fetch-preflight-btn">test</button>
     </div>
 
@@ -148,21 +154,21 @@
         href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-origin-request-policies.html#managed-origin-request-policies-list"
         target="_blank" rel="noopener"><code>CachingOptimized</code></a> and managed origin request policy <a
         href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html#managed-cache-policies-list"
-        target="_blank" rel="noopener"></a><code>CORS-S3Origin</code></a>.
+        target="_blank" rel="noopener"><code>CORS-S3Origin</code></a>. The S3 origin is with CORS settings.
     <div class="box">
-        <label>Get by img tag</label>
+        <label>GET by <code>img</code> tag</label>
         <button class="img-tag-btn">test</button>
     </div>
     <div class="box">
-        <label>Get by img tag with CORS</label>
+        <label>GET by <code>img crossorigin</code> tag</label>
         <button class="img-tag-crossorigin-btn">test</button>
     </div>
     <div class="box">
-        <label>Get by fetch</label>
+        <label>GET by fetch API</label>
         <button class="fetch-btn">test</button>
     </div>
     <div class="box">
-        <label>Get by fetch with preflight</label>
+        <label>GET by fetch API with preflight</label>
         <button class="fetch-preflight-btn">test</button>
     </div>
 
@@ -171,21 +177,23 @@
         href="https://aws.amazon.com/premiumsupport/knowledge-center/no-access-control-allow-origin-error/"
         target="_blank" rel="noopener">knowledge center</a>.
     <div class="box">
-        <label>Get by img tag</label>
+        <label>GET by <code>img</code> tag</label>
         <button class="img-tag-btn">test</button>
     </div>
     <div class="box">
-        <label>Get by img tag with CORS</label>
+        <label>GET by <code>img crossorigin</code> tag</label>
         <button class="img-tag-crossorigin-btn">test</button>
     </div>
     <div class="box">
-        <label>Get by fetch</label>
+        <label>GET by fetch API</label>
         <button class="fetch-btn">test</button>
     </div>
     <div class="box">
-        <label>Get by fetch with preflight</label>
+        <label>GET by fetch API with preflight</label>
         <button class="fetch-preflight-btn">test</button>
     </div>
+
+
 
     <p>
         Image source: https://unsplash.com/photos/jLi7xbYnYro
