@@ -1,18 +1,18 @@
-// https://cors-test-with-wrong-configuration.s3.eu-west-1.amazonaws.com/dublin.jpg
-// https://cors-test-12345678.s3.eu-west-1.amazonaws.com/dublin.jpg
-// https://cors-1.lichi-chen.com/dublin.jpg
-// https://simple-cors.lichi-chen.com/dublin.jpg
-
-// https://cors-origin-custom-header.lichi-chen.com/dublin.jpg
-// https://cors-caching-optimized.lichi-chen.com/dublin.jpg
-// https://cors-knowledge-center.lichi-chen.com/dublin.jpg
-
+// 1. https://cors-test-with-wrong-configuration.s3.eu-west-1.amazonaws.com/dublin.jpg
+// 2. https://cors-test-12345678.s3.eu-west-1.amazonaws.com/dublin.jpg
+// 3. https://cors-1.lichi-chen.com/dublin.jpg
+// 4. https://simple-cors.lichi-chen.com/dublin.jpg
+// 5. https://cors-with-preflight.lichi-chen.com/dublin.jpg
+// 6. https://cors-origin-custom-header.lichi-chen.com/dublin.jpg
+// 7. https://cors-caching-optimized.lichi-chen.com/dublin.jpg
+// 8. https://cors-knowledge-center.lichi-chen.com/dublin.jpg
 
 const urls = [
     'https://cors-test-with-wrong-configuration.s3.eu-west-1.amazonaws.com/dublin.jpg',
     'https://cors-test-12345678.s3.eu-west-1.amazonaws.com/dublin.jpg',
     'https://cors-1.lichi-chen.com/dublin.jpg',
     'https://simple-cors.lichi-chen.com/dublin.jpg',
+    'https://cors-with-preflight.lichi-chen.com/dublin.jpg',
     'https://cors-origin-custom-header.lichi-chen.com/dublin.jpg',
     'https://cors-caching-optimized.lichi-chen.com/dublin.jpg',
     'https://cors-knowledge-center.lichi-chen.com/dublin.jpg',
