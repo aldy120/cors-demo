@@ -15,11 +15,18 @@
 
 <body>
     <h1>CORS Demo</h1>
-    <p>Press keyboard <button id="esc">esc</button> to remove all images.</p>
+    <p>This is a page to test cross-origin resource sharing with different settings in S3 and CloudFront. You should have basic knowledge about <a
+            href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS" target="_blank" rel="noopener">Cross-Origin
+            resources sharing (CORS)</a> and <a
+            href="https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy" target="_blank"
+            rel="noopener">Same-Origin policy</a> before using this website.</p>
+            <p>Press keyboard
+                <button id="esc">esc</button> to remove all images. </p>
 
     <h2>1. S3 without CORS settings</h2>
     <p>Use default S3 configuration. No <a
-            href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/enabling-cors-examples.html">CORS policy</a> in
+            href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/enabling-cors-examples.html" target="_blank"
+            rel="noopener">CORS policy</a> in
         S3. In this case, S3 will not return <code>access-control-allow-origin</code> response header.</p>
     <div id="container"></div>
     <div class="box">
@@ -88,7 +95,8 @@
             href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-response-headers-policies.html#managed-response-headers-policies-cors"
             target="_blank" rel="noopener">simple-CORS</a>. The S3 origin is without CORS settings. CloudFront won't
         return <code>access-control-allow-origin</code> for a <a
-            href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#simple_requests">simple request</a>.
+            href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#simple_requests" target="_blank"
+            rel="noopener">simple request</a>.
     </p>
     <div class="box">
         <label>GET by <code>img</code> tag</label>
@@ -193,11 +201,28 @@
         <button class="fetch-preflight-btn">test</button>
     </div>
 
-
-
     <p>
         Image source: https://unsplash.com/photos/jLi7xbYnYro
     </p>
+    <h1>FAQ</h1>
+    <div class="box">
+        <h3>What is the best way to prevent potential CORS error in any edge cases?</h3>
+        <p>Use #6.</p>
+    </div>
+    <div class="box">
+        <h3>Why a pure img tag can always access to image and isn't blocked by CORS?</h3>
+        <p>Please find "Cross-origin embedding is typically allowed" and read the details in <a
+                href="https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy#cross-origin_network_access"
+                target="_blank" rel="noopener">this article</a>.</p>
+    </div>
+    <div class="box">
+        <h3>How do I tell whether the browser send a CORS request or not?</h3>
+        <p>Check if the request have <code>Origin:xxx</code> request header.</p>
+    </div>
+    <div class="box">
+        <h3>How do I know whether server side approved the CORS request from the source origin?</h3>
+        <p>Check response header <code>access-control-allow-origin: *</code>.</p>
+    </div>
     <script src="index.js"></script>
 </body>
 
